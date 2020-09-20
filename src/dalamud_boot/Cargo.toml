@@ -1,0 +1,25 @@
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[package]
+name = "dalamud_boot"
+version = "0.1.0"
+authors = ["Mino <Minoost@users.noreply.github.com>"]
+edition = "2018"
+
+[lib]
+name = "dalamud_boot"
+crate-type = ["cdylib"]
+
+[dependencies]
+log = "0.4"
+simple_logger = "1.9"
+dlopen = "0.1"
+widestring = "0.4"
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+hostfxr-sys = { path = "../hostfxr-sys" }
+nethost-sys = { path = "../nethost-sys" }
+
+[dependencies.winapi]
+version = "0.3"
+features = ["consoleapi", "processthreadsapi", "libloaderapi", "memoryapi"]

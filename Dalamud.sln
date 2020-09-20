@@ -1,0 +1,59 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30413.136
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dalamud", "src\Dalamud\Dalamud.csproj", "{6BE30DD4-5009-4405-A909-1C4A77F94F85}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dalamud.Bootstrap", "src\Dalamud.Bootstrap\Dalamud.Bootstrap.csproj", "{B1FC69F9-F42B-48B6-A5BF-1A1FE4B9A4F1}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dalamud.SqexArg", "src\Dalamud.SqexArg\Dalamud.SqexArg.csproj", "{64CFAEEF-23FF-4B96-9639-09D3490C9A30}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dalamud.Crypto", "src\Dalamud.Crypto\Dalamud.Crypto.csproj", "{DE3F6918-8096-4ECB-AC6C-8D861502150C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dalamud.Testing", "src\Dalamud.Testing\Dalamud.Testing.csproj", "{92442B23-908A-4758-80A2-224DF00DAE90}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dalamud.SamplePlugin", "src\Dalamud.SamplePlugin\Dalamud.SamplePlugin.csproj", "{745A9BF8-DA1F-4A5D-BAC9-77160E3B80AB}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "_build", "build\_build.csproj", "{08649302-403C-4837-AEC5-8259182C65B8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6BE30DD4-5009-4405-A909-1C4A77F94F85}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6BE30DD4-5009-4405-A909-1C4A77F94F85}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6BE30DD4-5009-4405-A909-1C4A77F94F85}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6BE30DD4-5009-4405-A909-1C4A77F94F85}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B1FC69F9-F42B-48B6-A5BF-1A1FE4B9A4F1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B1FC69F9-F42B-48B6-A5BF-1A1FE4B9A4F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B1FC69F9-F42B-48B6-A5BF-1A1FE4B9A4F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B1FC69F9-F42B-48B6-A5BF-1A1FE4B9A4F1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{64CFAEEF-23FF-4B96-9639-09D3490C9A30}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{64CFAEEF-23FF-4B96-9639-09D3490C9A30}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{64CFAEEF-23FF-4B96-9639-09D3490C9A30}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{64CFAEEF-23FF-4B96-9639-09D3490C9A30}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DE3F6918-8096-4ECB-AC6C-8D861502150C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DE3F6918-8096-4ECB-AC6C-8D861502150C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DE3F6918-8096-4ECB-AC6C-8D861502150C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DE3F6918-8096-4ECB-AC6C-8D861502150C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{92442B23-908A-4758-80A2-224DF00DAE90}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{92442B23-908A-4758-80A2-224DF00DAE90}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{92442B23-908A-4758-80A2-224DF00DAE90}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{92442B23-908A-4758-80A2-224DF00DAE90}.Release|Any CPU.Build.0 = Release|Any CPU
+		{745A9BF8-DA1F-4A5D-BAC9-77160E3B80AB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{745A9BF8-DA1F-4A5D-BAC9-77160E3B80AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{745A9BF8-DA1F-4A5D-BAC9-77160E3B80AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{745A9BF8-DA1F-4A5D-BAC9-77160E3B80AB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{08649302-403C-4837-AEC5-8259182C65B8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{08649302-403C-4837-AEC5-8259182C65B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1C3A0F7F-2607-4114-A1A4-6757AD1F9590}
+	EndGlobalSection
+EndGlobal

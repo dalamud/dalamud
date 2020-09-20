@@ -1,0 +1,6 @@
+[package]
+name = "nethost-sys"
+version = "0.1.0"
+authors = ["Mino <Minoost@users.noreply.github.com>"]
+edition = "2018"
+links = "nethost"

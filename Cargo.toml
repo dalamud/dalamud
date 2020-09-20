@@ -1,0 +1,10 @@
+[workspace]
+members = [
+    "src/dalamud_boot",
+]
+
+[profile.dev]
+
+[profile.release]
+opt-level = 3
+lto = "fat"

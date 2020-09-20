@@ -1,0 +1,62 @@
+name: Build
+
+on:
+  push:
+    branches: [ '*' ]
+  pull_request:
+    branches: [ '*' ]
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    env:
+      DOTNET_NOLOGO: true
+      DOTNET_CLI_TELEMETRY_OPTOUT: true
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: 'Cache: nuget'
+        uses: actions/cache@v2
+        with:
+          path: ~/.nuget/packages
+          key: ${{ runner.os }}-nuget-${{ hashFiles('**/packages.lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-nuget-
+
+      - name: 'Cache: cargo'
+        uses: actions/cache@v2
+        with:
+          path: |
+            ~/.cargo/registry
+            ~/.cargo/git
+            target
+          key: ${{ runner.os }}-cargo-${{ hashFiles('**/Cargo.lock') }}
+
+      - name: 'Install: .NET Core'
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: '5.0.100-rc.1.20452.10'
+      
+      - name: 'Install: rust components'
+        run: rustup component add clippy rustfmt
+      
+      - name: Build
+        run: ./build.cmd
+
+      - uses: actions/upload-artifact@v2
+        with:
+          name: dalamud
+          path: |
+            artifacts/release/**
+
+      - name: Clippy
+        uses: actions-rs/clippy-check@v1
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          args: --all-features --release
+      
+      - name: Test
+        run: ./build.cmd Test
