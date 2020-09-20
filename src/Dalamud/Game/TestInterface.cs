@@ -9,7 +9,7 @@ namespace Dalamud.Game
         void Hello();
     }
 
-    internal class TestInterface : ITestInterface
+    public class TestInterface : ITestInterface
     {
         public void Hello()
         {

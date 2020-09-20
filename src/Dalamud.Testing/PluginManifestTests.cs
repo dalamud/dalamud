@@ -8,11 +8,11 @@ namespace Dalamud.Testing
 {
     public class PluginManifestTests
     {
-        [Fact]
-        public void SimpleManifest()
-        {
-            var json = "{\"Id\": \"sample.plugin\", \"assembly\": \"test.dll\"}";
-            throw new NotImplementedException("todo: test");
-        }
+        // [Fact]
+        // public void SimpleManifest()
+        // {
+        //     var json = "{\"Id\": \"sample.plugin\", \"assembly\": \"test.dll\"}";
+        //     throw new NotImplementedException("todo: test");
+        // }
     }
 }
