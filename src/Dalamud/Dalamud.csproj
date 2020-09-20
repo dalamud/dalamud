@@ -8,10 +8,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Dalamud.Plugins\Dalamud.Plugins.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="Serilog" Version="2.9.0" />
     <PackageReference Include="Serilog.Sinks.Console" Version="4.0.0-dev-00839" />
   </ItemGroup>

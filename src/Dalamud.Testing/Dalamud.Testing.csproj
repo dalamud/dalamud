@@ -22,7 +22,6 @@
   <ItemGroup>
     <ProjectReference Include="..\Dalamud.Bootstrap\Dalamud.Bootstrap.csproj" />
     <ProjectReference Include="..\Dalamud.Crypto\Dalamud.Crypto.csproj" />
-    <ProjectReference Include="..\Dalamud.Plugins\Dalamud.Plugins.csproj" />
     <ProjectReference Include="..\Dalamud.SqexArg\Dalamud.SqexArg.csproj" />
     <ProjectReference Include="..\Dalamud\Dalamud.csproj" />
   </ItemGroup>
