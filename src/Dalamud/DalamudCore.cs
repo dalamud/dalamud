@@ -22,6 +22,8 @@ namespace Dalamud
         private DirectoryInfo m_pluginsDir = null!;
         private DirectoryInfo m_pluginDataDir = null!;
 
+        public DirectoryInfo PluginsDirectory => m_pluginsDir;
+
         public DalamudCore( DalamudInitParams initParams )
         {
             m_initParams = initParams;

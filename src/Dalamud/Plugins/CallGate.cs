@@ -6,7 +6,7 @@ namespace Dalamud.Plugins
 {
     public class CallGate : DynamicObject
     {
-        Dictionary< string, object > _funcs = new Dictionary< string, object >();
+        private readonly Dictionary< string, object > _funcs = new();
 
         public override bool TryGetMember( GetMemberBinder binder, out object? result )
         {
