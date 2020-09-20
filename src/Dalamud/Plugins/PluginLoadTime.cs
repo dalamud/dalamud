@@ -11,7 +11,7 @@ namespace Dalamud.Plugins
         /// Your plugin entry point will be called once Dalamud can init all of it's internal game interfaces, which has no guaranteed
         /// runtime outside of sometime this century. This is the default behaviour.
         /// </summary>
-        Game,
+        WhenReady,
         
         /// <summary>
         /// Early load time is as soon as the game starts. This mean your plugin will be loaded at the earliest possible time, but this

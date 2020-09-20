@@ -5,7 +5,7 @@ using Dalamud.Plugins;
 using Dalamud.SamplePlugin;
 
 [assembly: PluginEntryPoint(typeof(SamplePlugin))]
-[assembly: PluginLoadTime(PluginLoadTime.Early)]
+[assembly: PluginLoadTime(PluginLoadTime.WhenReady)]
 
 namespace Dalamud.SamplePlugin
 {

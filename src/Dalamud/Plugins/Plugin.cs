@@ -11,7 +11,7 @@ namespace Dalamud.Plugins
     /// <summary>
     /// Instance of plugin TODO
     /// </summary>
-    public class Plugin
+    class Plugin
     {
         private PluginLoadContext LoadContext { get; init; } = null!;
 
