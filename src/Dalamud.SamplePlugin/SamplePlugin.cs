@@ -1,3 +1,4 @@
+using System;
 using Dalamud.Game;
 using Dalamud.IOC;
 using Dalamud.Plugins;
@@ -19,11 +20,19 @@ namespace Dalamud.SamplePlugin
             // your constructor only gets called in the event that dalamud can satisfy all of its dependencies through the constructor
 
             m_testInterface = testInterface;
+            
+            // register some api
+            CallGate.RegisterAction( nameof( DoSomethingCool ), DoSomethingCool );
         }
 
         public override void OnPaint()
         {
             // draw gui here
+        }
+
+        private unsafe void DoSomethingCool()
+        {
+            *(byte*)0 = 0;
         }
     }
 }

@@ -9,7 +9,7 @@ using System.Text.Json;
 using System.Text.Json.Serialization;
 using Serilog;
 
-// Note thast
+// Note that this namespace is not Dalamud, this is on purpose.
 namespace Dalamud.Boot
 {
     /// <summary>
@@ -17,16 +17,16 @@ namespace Dalamud.Boot
     /// </summary>
     public static class EntryPoint
     {
-        public static unsafe int Initialize(nint args, int size)
+        public static unsafe int Initialize( nint args, int size )
         {
             Log.Logger = CreateLogger();
-            Log.Information("Dalamud.Core loaded");
-            
-            var paramJson = Encoding.UTF8.GetString((byte*) args, size);
-            Log.Verbose("param passed from dalamud_boot: {paramJson}", paramJson);
+            Log.Information( "Dalamud.Core loaded" );
+
+            var paramJson = Encoding.UTF8.GetString( ( byte* )args, size );
+            Log.Verbose( "param passed from dalamud_boot: {paramJson}", paramJson );
 
             var data = JsonSerializer.Deserialize< DalamudInitParams >( paramJson );
-            
+
             var dalamud = new DalamudCore( data );
 
             return 0;
