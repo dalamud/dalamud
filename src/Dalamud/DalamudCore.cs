@@ -3,7 +3,7 @@ using System.Text.Json;
 using Dalamud.Extensions;
 using Serilog;
 
-namespace Dalamud.Boot
+namespace Dalamud
 {
     public record DalamudInitParams
     {
@@ -16,11 +16,13 @@ namespace Dalamud.Boot
         
         private readonly DalamudInitParams m_initParams;
 
-        private DalamudConfig m_config;
+        private DalamudConfig m_config = null!;
 
-        private DirectoryInfo m_baseDir;
-        private DirectoryInfo m_pluginsDir;
-        private DirectoryInfo m_pluginDataDir;
+        private DirectoryInfo m_baseDir = null!;
+        private DirectoryInfo m_pluginsDir = null!;
+        private DirectoryInfo m_pluginDataDir = null!;
+
+        public DirectoryInfo PluginsDirectory => m_pluginsDir;
 
         public DalamudCore( DalamudInitParams initParams )
         {
@@ -53,7 +55,7 @@ namespace Dalamud.Boot
                 
                 // load existing cfg
                 var data = File.ReadAllText( configFilePath );
-                m_config = JsonSerializer.Deserialize< DalamudConfig >( data );
+                m_config = JsonSerializer.Deserialize< DalamudConfig >( data ) ?? new();
             }
 
             m_pluginsDir = new( Path.Combine( m_initParams.BasePath, m_config.PluginFolder ) );

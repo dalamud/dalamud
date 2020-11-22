@@ -1,4 +1,4 @@
-namespace Dalamud.Boot
+namespace Dalamud
 {
     public class DalamudConfig
     {

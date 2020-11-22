@@ -5,11 +5,11 @@ namespace Dalamud.Extensions
 {
     public static class ObjectExtensions
     {
-        public static void SerializeToFile( this object obj, string path )
+        public static void SerializeToFile( this object obj, string path, bool indented = true )
         {
             var data = JsonSerializer.Serialize( obj, new JsonSerializerOptions
             {
-                WriteIndented = true
+                WriteIndented = indented
             });
             
             File.WriteAllText( path, data );

@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Reflection;
 using Dalamud.IOC.Internal;
@@ -21,6 +22,11 @@ namespace Dalamud.IOC
         /// <typeparam name="T">The interface to register</typeparam>
         public void RegisterSingleton< T >( T instance )
         {
+            if( instance == null )
+            {
+                throw new ArgumentNullException( nameof( instance ) );
+            }
+            
             _objectInstances[ typeof( T ) ] = new( instance );
         }
 
@@ -32,6 +38,11 @@ namespace Dalamud.IOC
         /// <typeparam name="TImpl"></typeparam>
         public void RegisterSingleton< TInterface, TImpl >( TImpl impl )
         {
+            if( impl == null )
+            {
+                throw new ArgumentNullException( nameof( impl ) );
+            }
+            
             _objectInstances[ typeof( TInterface ) ] = new( impl );
         }
 

@@ -1,39 +1,70 @@
+using System;
+using System.Collections.Generic;
 using System.IO;
+using System.Net.Http;
+using System.Text.Json;
+using Serilog;
 
 namespace Dalamud.Plugins.Internal
 {
-    class PluginRepository
+    internal record DiscoveredPlugin
+    {
+        public DirectoryInfo PluginDir { get; init; }
+    
+        public Manifest Manifest { get; init; }
+    }
+    
+    internal class PluginRepository
     {
         private const string ManifestFileName = "manifest.json";
 
         /// <summary>
         /// Canonical path to repository.
         /// </summary>
-        private readonly string m_repositoryDirectory;
+        private readonly DirectoryInfo m_repositoryDirectory;
 
-        public PluginRepository(string directory) => 
-            m_repositoryDirectory = Path.GetFullPath(directory);
-        
-        public void Discover()
+        public PluginRepository( DirectoryInfo directory ) => m_repositoryDirectory = directory;
+
+        public List< DiscoveredPlugin > DiscoverManifests()
         {
-            foreach (var pluginDirectory in Directory.GetDirectories(m_repositoryDirectory))
+            var manifests = new List< DiscoveredPlugin >();
+            
+            foreach( var pluginDirectory in m_repositoryDirectory.GetDirectories() )
             {
-                var manifestPath = Path.Join(pluginDirectory, ManifestFileName);
+                var manifestPath = Path.Join( pluginDirectory.FullName, ManifestFileName );
 
-                if (File.Exists(manifestPath))
+                if( !File.Exists( manifestPath ) )
                 {
-                    // read manifest..
+                    Log.Error(
+                        "skipping plugin directory {PluginDirectory} - no manifest.json found",
+                        pluginDirectory.FullName
+                    );
+                    continue;
                 }
-                
-                // TODO
-                // 1. look for manifest.json
-                // 2. openRead()
-                // 3. parse to json
-                //  - if one of them is invalid... what to do
-                // 4. return all
 
-                // NOTE: it should not manage plugin loading here
+                // todo: error handling
+                var manifest = JsonSerializer.Deserialize< Manifest >( File.ReadAllText( manifestPath ) );
+
+                // validate that the assembly exists at least
+                var assemblyPath = Path.Join( pluginDirectory.FullName, manifest.Assembly );
+                if( !File.Exists( assemblyPath ) )
+                {
+                    Log.Error(
+                        "skipping plugin, unable to find assembly: {AssemblyPath}",
+                        assemblyPath
+                    );
+                    continue;
+                }
+
+                manifests.Add( new DiscoveredPlugin
+                {
+                    PluginDir = pluginDirectory,
+                    Manifest = manifest
+                });
+                
             }
+            
+            return manifests;
         }
     }
 }
